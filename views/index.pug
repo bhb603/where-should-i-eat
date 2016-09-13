@@ -1,5 +1,31 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome! 
+  div(class='container')
+    h1= 'Hungry?'
+
+    form(action='/eat' method='get')
+      div(class='row')
+        label(for='location')= 'Where are you?'
+        input(
+          type='text'
+          name='location'
+          id='location'
+          autofocus=true
+          placeholder='City, State OR Zip'
+          required=true
+        )
+
+      div(class='row')
+        label(for='radius')= 'How many miles will you travel?'
+        input(
+          type='text'
+          name='radius'
+          id='radius'
+          value=1
+          required=true
+          inputmode='numeric'
+        )
+
+      div(class='row')
+        input(type='submit' value='Where should I eat?')
