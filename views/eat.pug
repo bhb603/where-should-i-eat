@@ -1,34 +1,34 @@
 extends layout
 
 block content
-  div(class='container')
-    div(class='restaurant-card')
-      h2= data.name
-      div(class='categories')
-        each category in data.categories
-          span= category[0]
-      div(class='rating')
-        img(
-          src=`images/stars_${data.rating}.png`
-          alt=`${data.rating} out of 5 stars`
-          title=`${data.rating} out of 5 stars`
-        )
-        | (#{data.review_count} reviews)
-      div(class='address')
-        each line in data.location.address
-          div= line
-        div #{data.location.city}, #{data.location.state_code} #{data.location.zip_code}
-      div(class='phone')
-        a(href='tel:#{data.phone}')= data.display_phone
-      div(class='link')
-        a(href=data.url target='_blank') Link
+  div(class='container narrow')
+    div(class='top-spacer')
+    div(class='row')
+      div(class='restaurant-card')
+        h3
+          a(href=data.url target='_blank')= data.name
+        div(class='categories')
+          each category in data.categories
+            span= category[0]
+        div(class='rating')
+          img(
+            src=`images/stars_${data.rating}.png`
+            alt=`${data.rating} out of 5 stars`
+            title=`${data.rating} out of 5 stars`
+          )
+          | (#{data.review_count} reviews)
+        div(class='address')
+          each line in data.location.address
+            div= line
+          div #{data.location.city}, #{data.location.state_code} #{data.location.zip_code}
+        div(class='phone')
+          a(href=`tel:${data.phone}`)= data.display_phone
 
-    div
-      div
-        a(class='button' href=url) Try Again
-      div
-        a(class='button' href='/') Restart
+    div(class='row')
+      a(class='button' href=url) Find another place
+    div(class='row')
+      a(class='button' href='/') Go back
 
     footer
       | Powered by 
-      img(src='/images/yelp-logo-xsmall.png')
+      img(src='/images/yelp-logo-xsmall.png' class='yelp-logo')

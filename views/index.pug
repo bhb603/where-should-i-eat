@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  div(class='container')
-    h1 Hungry?
+  div(class='container narrow')
+    div(class='top-spacer')
 
     form(action='/eat' method='get')
       div(class='row')
@@ -12,7 +12,7 @@ block content
           name='location'
           id='location'
           autofocus=true
-          placeholder='City, State OR Zip'
+          placeholder='city, state or zip'
           required=true
         )
 
@@ -27,4 +27,4 @@ block content
           option(value='20')= '20 miles'
 
       div(class='row')
-        input(type='submit' value='Where should I eat?')
+        input(class='primary' type='submit' value='Find a place to eat')
