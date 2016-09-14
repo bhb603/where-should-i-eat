@@ -8,6 +8,9 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 require('dotenv').config({silent: true});
 
+const winston = require('winston');
+winston.level = process.env.LOG_LEVEL || 'warn';
+
 const routes = require('./routes/index');
 
 const app = express();
@@ -18,7 +21,7 @@ app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+app.use(logger('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
