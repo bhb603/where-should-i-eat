@@ -10,7 +10,11 @@ router.get('/', function (req, res) {
 
 router.get('/eat', function (req, res) {
   finder.findRestaurant(req).then((restaurant) => {
-      res.render('eat', {restaurant: restaurant});
+      if (req.query.format === 'json') {
+        res.json(restaurant);
+      } else {
+        res.render('eat', {data: restaurant, url: req.originalUrl});
+      }
     }).catch((err) => {
       res.status(500).json(err);
     });

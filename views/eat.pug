@@ -2,10 +2,33 @@ extends layout
 
 block content
   div(class='container')
-    h1= 'May we suggest...'
-
+    div(class='restaurant-card')
+      h2= data.name
+      div(class='categories')
+        each category in data.categories
+          span= category[0]
+      div(class='rating')
+        img(
+          src=`images/stars_${data.rating}.png`
+          alt=`${data.rating} out of 5 stars`
+          title=`${data.rating} out of 5 stars`
+        )
+        | (#{data.review_count} reviews)
+      div(class='address')
+        each line in data.location.address
+          div= line
+        div #{data.location.city}, #{data.location.state_code} #{data.location.zip_code}
+      div(class='phone')
+        a(href='tel:#{data.phone}')= data.display_phone
+      div(class='link')
+        a(href=data.url target='_blank') Link
 
     div
-      h2= restaurant.name
-      h4 Rating: #{restaurant.rating}/5 (#{restaurant.review_count} reviews)
-      p= restaurant.display_phone
+      div
+        a(class='button' href=url) Try Again
+      div
+        a(class='button' href='/') Restart
+
+    footer
+      | Powered by 
+      img(src='/images/yelp-logo-xsmall.png')
