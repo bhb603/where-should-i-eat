@@ -2,7 +2,7 @@ extends layout
 
 block content
   div(class='container')
-    h1= 'Hungry?'
+    h1 Hungry?
 
     form(action='/eat' method='get')
       div(class='row')
@@ -17,15 +17,14 @@ block content
         )
 
       div(class='row')
-        label(for='radius')= 'How many miles will you travel?'
-        input(
-          type='text'
-          name='radius'
-          id='radius'
-          value=1
-          required=true
-          inputmode='numeric'
-        )
+        label(for='radius')= 'How far will you travel?'
+        select(name='radius' id='radius')
+          option(value='0.5')= '0.5 miles'
+          option(value='1' selected=true)= '1 mile'
+          option(value='2')= '2 miles'
+          option(value='5')= '5 miles'
+          option(value='10')= '10 miles'
+          option(value='20')= '20 miles'
 
       div(class='row')
         input(type='submit' value='Where should I eat?')

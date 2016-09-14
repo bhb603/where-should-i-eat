@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  div(class='container')
+    h1= 'May we suggest...'
+
+
+    div
+      h2= restaurant.name
+      h4 Rating: #{restaurant.rating}/5 (#{restaurant.review_count} reviews)
+      p= restaurant.display_phone
