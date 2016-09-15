@@ -3,9 +3,9 @@ extends layout
 block content
   div(class='container narrow')
     div(class='top-spacer')
-    div(class='row')
-      div(class='restaurant-card')
-        h3=data.name
+    div(class='row restaurant-card')
+      h3=data.name
+      div(class='restaurant-info')
         div(class='address')
           each line in data.location.address
             div= line

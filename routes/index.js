@@ -11,6 +11,7 @@ router.get('/', function (req, res) {
 
 router.get('/eat', function (req, res) {
   finder.findRestaurant(req).then((restaurant) => {
+    /** @todo if !restaurant  show no results */
       if (req.query.format === 'json') {
         res.json(restaurant);
       } else {
