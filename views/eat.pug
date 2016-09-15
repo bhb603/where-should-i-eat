@@ -3,28 +3,33 @@ extends layout
 block content
   div(class='container narrow')
     div(class='top-spacer')
-    div(class='row restaurant-card')
-      h3=data.name
-      div(class='restaurant-info')
-        div(class='address')
-          each line in data.location.address
-            div= line
-          div #{data.location.city}, #{data.location.state_code} #{data.location.postal_code}
-            a(href=mapUrl target='_blank')  (map)
-        div(class='rating')
-          img(
-            src=`images/stars_${data.rating}.png`
-            alt=`${data.rating} out of 5 stars`
-            title=`${data.rating} out of 5 stars`
-          )
-          a(href=data.url target='_blank')  (#{data.review_count} reviews)
-        div(class='categories')
-          ul
-            each category in data.categories
-              li
-                a(href=`${url}&category=${category[1]}`)= category[0]
-    div(class='row')
-      a(class='button' href=fullUrl) Next Recommendation
+    if data
+      div(class='row restaurant-card')
+        h3=data.name
+        div(class='restaurant-info')
+          div(class='address')
+            each line in data.location.address
+              div= line
+            div #{data.location.city}, #{data.location.state_code} #{data.location.postal_code}
+              a(href=mapUrl target='_blank')  (map)
+          div(class='rating')
+            img(
+              src=`images/stars_${data.rating}.png`
+              alt=`${data.rating} out of 5 stars`
+              title=`${data.rating} out of 5 stars`
+            )
+            a(href=data.url target='_blank')  (#{data.review_count} reviews)
+          div(class='categories')
+            ul
+              each category in data.categories
+                li
+                  a(href=`${url}&category=${category[1]}`)= category[0]
+      div(class='row')
+        a(class='button' href=fullUrl) Next Recommendation
+    else
+      div(class='no-results')
+        p Sorry, no results found ¯\_(ツ)_/¯
+        p Try increasing distance or changing search query.
     div(class='row')
       a(class='button' href='/') Start over
     footer
