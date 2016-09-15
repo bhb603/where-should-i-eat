@@ -12,7 +12,7 @@ block content
           name='location'
           id='location'
           autofocus=true
-          placeholder='city, state or zip'
+          placeholder='address, city, state or zip'
           required=true
         )
 
@@ -25,6 +25,15 @@ block content
           option(value='5')= '5 miles'
           option(value='10')= '10 miles'
           option(value='20')= '20 miles'
+
+      div(class='row')
+        label(for='search')= 'What do you want? (optional)'
+        input(
+          type='text'
+          name='search'
+          id='search'
+          placeholder='burgers, thai, sushi, etc...'
+        )
 
       div(class='row')
         input(class='primary' type='submit' value='Find a place to eat')

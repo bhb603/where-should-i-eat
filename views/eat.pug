@@ -5,30 +5,28 @@ block content
     div(class='top-spacer')
     div(class='row')
       div(class='restaurant-card')
-        h3
-          a(href=data.url target='_blank')= data.name
-        div(class='categories')
-          each category in data.categories
-            span= category[0]
+        h3=data.name
+        div(class='address')
+          each line in data.location.address
+            div= line
+          div #{data.location.city}, #{data.location.state_code} #{data.location.postal_code}
+            a(href=mapUrl target='_blank')  (map)
         div(class='rating')
           img(
             src=`images/stars_${data.rating}.png`
             alt=`${data.rating} out of 5 stars`
             title=`${data.rating} out of 5 stars`
           )
-          | (#{data.review_count} reviews)
-        div(class='address')
-          each line in data.location.address
-            div= line
-          div #{data.location.city}, #{data.location.state_code} #{data.location.zip_code}
-        div(class='phone')
-          a(href=`tel:${data.phone}`)= data.display_phone
-
+          a(href=data.url target='_blank')  (#{data.review_count} reviews)
+        div(class='categories')
+          ul
+            each category in data.categories
+              li
+                a(href=`${url}&category=${category[1]}`)= category[0]
     div(class='row')
-      a(class='button' href=url) Find another place
+      a(class='button' href=fullUrl) Next Recommendation
     div(class='row')
-      a(class='button' href='/') Go back
-
+      a(class='button' href='/') Start over
     footer
       | Powered by 
       img(src='/images/yelp-logo-xsmall.png' class='yelp-logo')
