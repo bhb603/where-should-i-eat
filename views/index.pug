@@ -4,7 +4,7 @@ block content
   div(class='container narrow')
     div(class='top-spacer')
 
-    form(action='/eat' method='get')
+    form(action='/eat' method='get' id='form')
       div(class='row')
         label(for='location')= 'Where are you?'
         input(
@@ -21,7 +21,7 @@ block content
         label(for='radius')= 'How far will you travel?'
         select(name='radius' id='radius')
           option(value='0.5' selected=(savedParams && (savedParams.radius === '0.5'))) 0.5 miles
-          option(value='1' selected=(savedParams && (savedParams.radius === '1'))) 1 mile
+          option(value='1' selected=(!savedParams || (savedParams && (savedParams.radius === '1')))) 1 mile
           option(value='2' selected=(savedParams && (savedParams.radius === '2'))) 2 miles
           option(value='5' selected=(savedParams && (savedParams.radius === '5'))) 5 miles
           option(value='10' selected=(savedParams && (savedParams.radius === '10'))) 10 miles
@@ -38,7 +38,7 @@ block content
         )
 
       div(class='row')
-        label(for='save')
+        label(for='save' id='save-label')
           input(
             type='checkbox'
             name='save'
@@ -47,6 +47,7 @@ block content
             checked= savedParams ? true : false
           )
           |  Save search parameters
+        a(href='/?clear=true' id='clear')  (clear)
 
       div(class='row')
         input(class='primary' type='submit' value='Find a place to eat')

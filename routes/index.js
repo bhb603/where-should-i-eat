@@ -5,15 +5,22 @@ const finder = require('../lib/finder');
 const router = express.Router();
 const url = require('url');
 
+const COOKIE_NAME = 'wsie_params';
+
 router.get('/', function (req, res) {
-  let savedParams = req.cookies.wsie_params;
+  let savedParams = null;
+  if (req.query.clear === 'true') {
+    res.clearCookie(COOKIE_NAME);
+  } else {
+    savedParams = req.cookies[COOKIE_NAME];
+  }
   res.render('index', {savedParams: savedParams});
 });
 
 router.get('/eat', function (req, res) {
   finder.findRestaurant(req).then((data) => {
     if (req.query.save === 'true') {
-     res.cookie('wsie_params', {
+     res.cookie(COOKIE_NAME, {
        location: req.query.location,
        radius: req.query.radius,
        search: req.query.search
@@ -21,7 +28,7 @@ router.get('/eat', function (req, res) {
        maxAge: 2592000000 // 30 days
      });
     } else {
-      res.clearCookie('wsie_params');
+      res.clearCookie(COOKIE_NAME);
     }
 
     if (req.query.format === 'json') {
@@ -31,11 +38,11 @@ router.get('/eat', function (req, res) {
     let mapUrl = '';
     if (data) {
       mapUrl =
-        'https://www.google.com/maps?q=' +
+        ('https://www.google.com/maps?q=' +
         data.location.address.join(' ') +
         data.location.city + ', ' +
         data.location.state_code + ' ' +
-        data.location.postal_code.replace(/\s+/g, '+');
+        data.location.postal_code).replace(/\s+/g, '+');
     }
 
     let fullUrl = req.originalUrl;

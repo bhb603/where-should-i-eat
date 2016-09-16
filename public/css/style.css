@@ -138,6 +138,14 @@ input[type="submit"].primary:focus {
   border-color: #2D882D;
 }
 
+#save-label {
+  float: left;
+}
+#clear {
+  display: block;
+  text-align: right;
+}
+
 .top-spacer {
   height: 120px;
 }
