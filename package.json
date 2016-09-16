@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start-dev": "./node_modules/.bin/nodemon"
+    "start-dev": "./node_modules/.bin/nodemon",
+    "minify-css": "./node_modules/.bin/cssnano public/css/style.css public/css/style.min.css"
   },
   "engines": {
     "node": "6.3.x"
@@ -24,5 +25,9 @@
     "serve-favicon": "~2.3.0",
     "winston": "^2.2.0",
     "yelp": "^1.0.1"
+  },
+  "devDependencies": {
+    "cssnano-cli": "^1.0.4",
+    "psi": "^2.0.4"
   }
 }
