@@ -13,18 +13,19 @@ block content
           id='location'
           autofocus=true
           placeholder='address, city, state or zip'
+          value=(savedParams && savedParams.location) ? savedParams.location : null
           required=true
         )
 
       div(class='row')
         label(for='radius')= 'How far will you travel?'
         select(name='radius' id='radius')
-          option(value='0.5')= '0.5 miles'
-          option(value='1' selected=true)= '1 mile'
-          option(value='2')= '2 miles'
-          option(value='5')= '5 miles'
-          option(value='10')= '10 miles'
-          option(value='20')= '20 miles'
+          option(value='0.5' selected=(savedParams && (savedParams.radius === '0.5'))) 0.5 miles
+          option(value='1' selected=(savedParams && (savedParams.radius === '1'))) 1 mile
+          option(value='2' selected=(savedParams && (savedParams.radius === '2'))) 2 miles
+          option(value='5' selected=(savedParams && (savedParams.radius === '5'))) 5 miles
+          option(value='10' selected=(savedParams && (savedParams.radius === '10'))) 10 miles
+          option(value='20' selected=(savedParams && (savedParams.radius === '20'))) 20 miles
 
       div(class='row')
         label(for='search')= 'What do you want? (optional)'
@@ -33,7 +34,19 @@ block content
           name='search'
           id='search'
           placeholder='burgers, Thai, vegetarian, etc...'
+          value=(savedParams && savedParams.search) ? savedParams.search : null
         )
+
+      div(class='row')
+        label(for='save')
+          input(
+            type='checkbox'
+            name='save'
+            id='save'
+            value='true'
+            checked= savedParams ? true : false
+          )
+          |  Save search parameters
 
       div(class='row')
         input(class='primary' type='submit' value='Find a place to eat')
