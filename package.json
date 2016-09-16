@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start-dev": "./node_modules/.bin/nodemon",
-    "minify-css": "./node_modules/.bin/cssnano public/css/style.css public/css/style.min.css"
+    "start-dev": "nodemon",
+    "minify-css": "cssnano public/css/style.css public/css/style.min.css"
   },
   "engines": {
     "node": "6.3.x"
@@ -29,5 +29,15 @@
   "devDependencies": {
     "cssnano-cli": "^1.0.4",
     "psi": "^2.0.4"
-  }
+  },
+  "description": "A lightweight web app for the [10k Apart Contest](https://a-k-apart.com/).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhb603/where-should-i-eat.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bhb603/where-should-i-eat/issues"
+  },
+  "homepage": "https://github.com/bhb603/where-should-i-eat#readme"
 }

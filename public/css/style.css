@@ -97,6 +97,11 @@ label {
   margin-bottom: .5rem;
 }
 
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
 a.button,
 input[type="submit"] {
   display: inline-block;
@@ -147,7 +152,7 @@ input[type="submit"].primary:focus {
 }
 
 .top-spacer {
-  height: 120px;
+  height: 80px;
 }
 
 div.restaurant-card {
