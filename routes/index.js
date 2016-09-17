@@ -4,7 +4,6 @@ const express = require('express');
 const finder = require('../lib/finder');
 const router = express.Router();
 const url = require('url');
-const winston = require('winston');
 
 const COOKIE_NAME = 'wsie_params';
 
@@ -18,7 +17,7 @@ router.get('/', function (req, res) {
   res.render('index', {savedParams: savedParams});
 });
 
-router.get('/eat', function (req, res) {
+router.get('/eat', function (req, res, next) {
   finder.findRestaurant(req).then((data) => {
     if (req.query.save === 'true') {
      res.cookie(COOKIE_NAME, {
@@ -50,8 +49,18 @@ router.get('/eat', function (req, res) {
     let url = `/eat?location=${req.query.location}&radius=${req.query.radius}`;
     res.render('eat', {data: data, fullUrl: fullUrl, url: url, mapUrl: mapUrl});
   }).catch((err) => {
-    // @todo error page for invalid location
-    res.status(500).json(err);
+
+    if (err.statusCode === 400) {
+      (req.query.format === 'json') ?
+        res.status(400).json({error: 'invalid location'}) :
+        res.status(400).render('invalid');
+      return;
+    }
+
+    let error = new Error('Something went wrong');
+    error.stack = err.data;
+    error.status = 500;
+    next(error);
   });
 });
 

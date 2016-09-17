@@ -19,14 +19,10 @@ section {
 .container {
   position: relative;
   width: 100%;
-  max-width: 960px;
+  max-width: 360px;
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
-}
-
-.container.narrow {
-  max-width: 360px;
 }
 
 h1, h2, h3, h4, h5, h6 {
