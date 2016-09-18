@@ -13,7 +13,6 @@ window.addEventListener('load', function() {
       event.preventDefault();
       document.cookie = "wsie_params=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
       document.getElementById('location').value = null;
-      document.getElementById('radius').value = '1';
       document.getElementById('search').value = null;
       document.getElementById('save').checked = false;
     }

@@ -6,6 +6,8 @@ const router = express.Router();
 const url = require('url');
 
 const COOKIE_NAME = 'wsie_params';
+const COOKIE_AGE = 30*24*60*60*1000; // 30 days
+
 
 router.get('/', function (req, res) {
   let savedParams = null;
@@ -19,15 +21,14 @@ router.get('/', function (req, res) {
 
 router.get('/eat', function (req, res, next) {
   fsqClient.explore(req).then((data) => {
-    // return res.json(data);
     if (req.query.save === 'true') {
      res.cookie(COOKIE_NAME, {
        location: req.query.location,
        radius: req.query.radius,
        search: req.query.search,
-       prices: req.query.prices
+       price: req.query.price
      }, {
-       maxAge: 2592000000 // 30 days
+       maxAge: COOKIE_AGE
      });
     } else {
       res.clearCookie(COOKIE_NAME);
@@ -35,6 +36,7 @@ router.get('/eat', function (req, res, next) {
 
     let mapUrl = '';
     let fsqUrl = '';
+    let pricePoint = '';
     if (data) {
       mapUrl =
         ('https://www.google.com/maps?q=' +
@@ -43,13 +45,30 @@ router.get('/eat', function (req, res, next) {
         data.venue.location.state + ' ' +
         data.venue.location.postalCode).replace(/\s+/g, '+');
       fsqUrl = 'http://foursquare.com/v/' + data.venue.id + '?ref=' + process.env.FSQ_CLIENT_ID;
+      if (data.venue.price) {
+        switch (data.venue.price.tier) {
+          case 1:
+            pricePoint = '$';
+            break;
+          case 2:
+            pricePoint = '$$';
+            break;
+          case 3:
+            pricePoint = '$$$';
+            break;
+          case 4:
+            pricePoint = '$$$$';
+            break;
+        }
+      }
     }
 
     let response = {
       data: data,
       requestUrl: req.originalUrl,
       mapUrl: mapUrl,
-      fsqUrl: fsqUrl
+      fsqUrl: fsqUrl,
+      pricePoint: pricePoint
     }
     if (req.query.format === 'json') {
       res.json(response);
@@ -57,7 +76,6 @@ router.get('/eat', function (req, res, next) {
       res.render('eat', response);
     }
   }).catch((err) => {
-    console.log(err);
     if (err.code === 400) {
       (req.query.format === 'json') ?
         res.status(400).json({error: 'invalid location'}) :

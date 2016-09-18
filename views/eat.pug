@@ -2,7 +2,7 @@ extends layout
 
 block content
   div(class='container')
-    div(class='top-spacer')
+    div(class='spacer')
     if data
       div(class='restaurant-card')
         h3=data.venue.name
@@ -11,6 +11,7 @@ block content
             ul
               each category in data.venue.categories
                 li= category.name
+          div(class='price-point')= pricePoint
           div(class='rating')
             if data.venue.rating
               span(class='rating')= `${data.venue.rating}/10`

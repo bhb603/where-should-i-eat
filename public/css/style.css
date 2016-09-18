@@ -148,7 +148,7 @@ input[type="submit"].primary:focus {
   text-align: right;
 }
 
-.top-spacer {
+.spacer {
   height: 80px;
 }
 
