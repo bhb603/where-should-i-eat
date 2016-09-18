@@ -22,9 +22,9 @@
     "morgan": "~1.6.1",
     "nodemon": "^1.10.2",
     "pug": "^2.0.0-beta6",
+    "requestify": "^0.2.3",
     "serve-favicon": "~2.3.0",
-    "winston": "^2.2.0",
-    "yelp": "^1.0.1"
+    "winston": "^2.2.0"
   },
   "devDependencies": {
     "cssnano-cli": "^1.0.4",

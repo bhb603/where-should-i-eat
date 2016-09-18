@@ -34,12 +34,12 @@ h3 { font-size: 2rem; }
 
 a {
   text-decoration: none;
-  color: #55AA55;
+  color: #8a8;
 }
 
 a:hover,
 a:active {
-  color: #2D882D;
+  color: #8b8;
 }
 
 
@@ -105,7 +105,7 @@ input[type="submit"] {
   font-size: 11px;
   width: 100%;
   padding: 0 30px;
-  color: #555;
+  color: #8a8;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
@@ -114,7 +114,7 @@ input[type="submit"] {
   white-space: nowrap;
   background-color: transparent;
   border-radius: 4px;
-  border: 1px solid #BBB;
+  border: 1px solid #8a8;
   cursor: pointer;
   box-sizing: border-box;
 }
@@ -122,21 +122,22 @@ a.button:hover,
 a.botton:focus,
 input[type="submit"]:hover,
 input[type="submit"]:focus {
-  color: #333;
-  border-color: #888;
+  background-color: #8a8;
+  border-color: #8a8;
+  color: #fff;
   outline: 0;
 }
 
 input[type="submit"].primary {
-  color: #FFF;
-  background-color: #55AA55;
-  border-color: #55AA55;
+  color: #fff;
+  background-color: #8b8;
+  border-color: #8b8;
 }
 input[type="submit"].primary:hover,
 input[type="submit"].primary:focus {
-  color: #FFF;
-  background-color: #2D882D;
-  border-color: #2D882D;
+  color: #fff;
+  background-color: #8a8;
+  border-color: #8a8;
 }
 
 #save-label {
@@ -153,29 +154,33 @@ input[type="submit"].primary:focus {
 
 div.restaurant-card {
   border-radius: 9px;
-  border: 1px solid #666;
+  border: 1px solid #5b94ab;
+  color: #666;
 }
 div.restaurant-card > h3 {
   padding: 20px;
   color: #fff;
-  background-color: #666;
-  border: 1px solid #666;
+  background-color: #5b94ab;
+  border: 1px solid #5b94ab;
   border-radius: 8px 8px 0 0;
 }
 div.restaurant-info {
-  padding: 20px;
-  padding-top: 0;
+  padding: 0 20px;
+  font-size: 1rem;
 }
-div.address,
-div.rating {
+div.restaurant-info > div {
   margin: 20px 0;
 }
-div.rating {
-  font-size: .8rem;
-  line-height: 22px;
+div.address > a {
+  font-size: 0.9rem;
 }
-div.rating > img {
-  vertical-align: bottom;
+div.rating > span.rating {
+  font-family: monospace;
+  padding: 6px;
+  border-radius: 4px;
+  margin: 3px 6px 3px 0;
+  color: #fff;
+  background-color: #8b8;
 }
 
 div.categories > ul {
@@ -185,20 +190,14 @@ div.categories > ul {
 }
 div.categories > ul > li {
   display: inline-block;
+  font-size: 1.3rem;
 }
-div.categories a {
-  font-size: 0.8rem;
-  text-transform: lowercase;
-  display: inline-block;
-  padding: 6px;
-  border-radius: 4px;
-  margin: 3px 6px 3px 0;
-  color: #FFF;
-  background-color: #55AA55;
-}
-div.categories a:active,
-div.categories a:hover {
-  background-color: #2D882D;
+
+div.powered-by-fsq {
+  font-size: 12px;
+  text-align: center;
+  margin: 10px 0 30px 0;
+  text-transform: uppercase;
 }
 
 footer {
@@ -206,7 +205,4 @@ footer {
   margin: 70px 0 20px 0;
   font-size: 12px;
   line-height: 24px;
-}
-img#yelp-logo {
-  vertical-align: middle;
 }

@@ -4,28 +4,28 @@ block content
   div(class='container')
     div(class='top-spacer')
     if data
-      div(class='row restaurant-card')
-        h3=data.name
+      div(class='restaurant-card')
+        h3=data.venue.name
         div(class='restaurant-info')
-          div(class='address')
-            each line in data.location.address
-              div= line
-            div #{data.location.city}, #{data.location.state_code} #{data.location.postal_code}
-              a(href=mapUrl target='_blank')  (map)
-          div(class='rating')
-            img(
-              src=`images/stars_${data.rating}.png`
-              alt=`${data.rating} out of 5 stars`
-              title=`${data.rating} out of 5 stars`
-            )
-            a(href=data.url target='_blank')  (#{data.review_count} reviews)
           div(class='categories')
             ul
-              each category in data.categories
-                li
-                  a(href=`${url}&category=${category[1]}`)= category[0]
+              each category in data.venue.categories
+                li= category.name
+          div(class='rating')
+            if data.venue.rating
+              span(class='rating')= `${data.venue.rating}/10`
+          div(class='address')
+            div= data.venue.location.address
+            div= data.venue.location.city + ', ' + data.venue.location.state + ' ' + data.venue.location.postalCode
+            a(href=mapUrl target='_blank')  (map)
+          div(class='fsq-link')
+            a(href=fsqUrl target='_blank') View on Foursquare
+          div
+            a(href=data.venue.url target='_blank')= data.venue.url
+      div(class='powered-by-fsq')
+        | Powered by <a href='http://foursquare.com'>Foursquare</a>
       div(class='row')
-        a(class='button' href=fullUrl) Next Recommendation
+        a(class='button' href=requestUrl) Next Recommendation
     else
       div(class='no-results')
         p Sorry, no results found ¯\_(ツ)_/¯
@@ -35,5 +35,3 @@ block content
     footer
       div © 2016 Brian Buchholz
       div A lightweight web app for the <a href='https://a-k-apart.com/' target='_blank'>10k Apart Contest</a>.
-      div Recommendations powered by 
-        img(src='/images/yelp-logo-xsmall.png' id='yelp-logo')
