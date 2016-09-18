@@ -21,8 +21,9 @@ block content
             a(href=mapUrl target='_blank')  (map)
           div(class='fsq-link')
             a(href=fsqUrl target='_blank') View on Foursquare
-          div
-            a(href=data.venue.url target='_blank')= data.venue.url
+          if data.venue.url
+            div
+              a(href=data.venue.url target='_blank') Visit Restaurant Website
       div(class='powered-by-fsq')
         | Powered by <a href='http://foursquare.com' target='_blank'>Foursquare</a>
       div(class='row')
