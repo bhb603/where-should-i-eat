@@ -11,7 +11,7 @@ block content
             ul
               each category in data.venue.categories
                 li= category.name
-          div(class='price-point')= pricePoint
+          div(class='price-point') !{pricePoint}
           div(class='rating')
             if data.venue.rating
               span(class='rating')= `${data.venue.rating}/10`
@@ -26,14 +26,12 @@ block content
               a(href=data.venue.url target='_blank') Visit Restaurant Website
       div(class='powered-by-fsq')
         | Powered by <a href='http://foursquare.com' target='_blank'>Foursquare</a>
-      div(class='row')
-        a(class='button' href=requestUrl) Next Recommendation
+      a(class='button primary' href=requestUrl) Next Recommendation
     else
       div(class='no-results')
         p Sorry, no results found ¯\_(ツ)_/¯
         p Try increasing distance or changing search query.
-    div(class='row')
-      a(class='button' href='/') Start over
+    a(class='button' href='/') Start over
     footer
       div © 2016 Brian Buchholz
       div A lightweight web app for the <a href='https://a-k-apart.com/' target='_blank'>10k Apart Contest</a>.

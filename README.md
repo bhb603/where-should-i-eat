@@ -11,16 +11,13 @@ A lightweight web app for the [10k Apart Contest](https://a-k-apart.com/).
 
 | Name                | Type      | Size (kB) | Notes
 |---------------------|-----------|----------:|------
-| /                   | document  | 1.7       |
-| style.min.css       | stylesheet| 2.8       |
-| /eat                | document  | 1.9       |
-| main.js             | script    | 1.1       | optional - site functions w/out js
-| css?family=Raleway  | stylesheet| 0.7       | optional and lazyloaded
-| [google font]       | font      | 13.1      | optional and lazyloaded
+| /                   | document  | 1.4       |
+| style.min.css       | stylesheet| 2.9       |
+| /eat                | document  | 1.7       |
+| main.js             | script    | 0.74      | optional - site functions w/out js
 
 
 | Totals                 | Size (kB) |
 |------------------------|----------:|
-| Baseline (no JS)       | 6.4       |
-| Baseline + JS          | 7.5       |
-| Base + JS + lazy-loads | 21.3      |
+| Baseline (no JS)       | 5.9       |
+| Baseline + JS          | 6.6       |

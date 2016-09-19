@@ -48,13 +48,13 @@ router.get('/eat', function (req, res, next) {
       if (data.venue.price) {
         switch (data.venue.price.tier) {
           case 1:
-            pricePoint = '$';
+            pricePoint = '$<span class="greyed">$$$</span>';
             break;
           case 2:
-            pricePoint = '$$';
+            pricePoint = '$$<span class="greyed">$$</span>';
             break;
           case 3:
-            pricePoint = '$$$';
+            pricePoint = '$$$<span class="greyed">$</span>';
             break;
           case 4:
             pricePoint = '$$$$';

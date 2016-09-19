@@ -35,12 +35,12 @@ h3 { font-size: 2rem; }
 
 a {
   text-decoration: none;
-  color: #7b7;
+  color: #008000;
 }
 
 a:hover,
 a:active {
-  color: #5a5;
+  color: #7b7;
 }
 
 
@@ -106,7 +106,7 @@ input[type="submit"] {
   font-size: 11px;
   width: 100%;
   padding: 0 30px;
-  color: #7b7;
+  color: #555;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
@@ -115,47 +115,42 @@ input[type="submit"] {
   white-space: nowrap;
   background-color: transparent;
   border-radius: 4px;
-  border: 1px solid #7b7;
+  border: 1px solid #555;
   cursor: pointer;
   box-sizing: border-box;
+  margin: 10px 0;
 }
 a.button:hover,
 a.botton:focus,
 input[type="submit"]:hover,
 input[type="submit"]:focus {
-  background-color: #7b7;
-  border-color: #7b7;
-  color: #fff;
+  border-color: #999;
+  color: #999;
   outline: 0;
 }
 
+a.button.primary,
 input[type="submit"].primary {
-  color: #fff;
-  background-color: #7b7;
-  border-color: #7b7;
-}
-input[type="submit"].primary:hover,
-input[type="submit"].primary:focus {
   color: #fff;
   background-color: #5a5;
   border-color: #5a5;
 }
-
-#save-label {
-  float: left;
-}
-#clear {
-  display: block;
-  text-align: right;
+a.button.primary:hover,
+a.button.primary:focus,
+input[type="submit"].primary:hover,
+input[type="submit"].primary:focus {
+  color: #fff;
+  background-color: #7b7;
+  border-color: #7b7;
 }
 
 .spacer {
-  height: 80px;
+  height: 60px;
 }
 
 div.restaurant-card {
   border-radius: 9px;
-  border: 1px solid #5b94ab;
+  background-color: #efefef;
   color: #666;
   overflow: hidden;
 }
@@ -173,6 +168,13 @@ div.restaurant-info {
 div.restaurant-info > div {
   margin: 20px 0;
 }
+div.price-point {
+  letter-spacing: 4px;
+  font-weight: normal;
+}
+div.price-point > span.greyed {
+  color: #bbb;
+}
 div.address > a {
   font-size: 0.9rem;
 }
@@ -182,7 +184,7 @@ div.rating > span.rating {
   border-radius: 4px;
   margin: 3px 6px 3px 0;
   color: #fff;
-  background-color: #7b7;
+  background-color: #5b94ab;
 }
 
 div.categories > ul {
@@ -192,7 +194,6 @@ div.categories > ul {
 }
 div.categories > ul > li {
   display: inline-block;
-  font-size: 1.3rem;
 }
 
 div.powered-by-fsq {
