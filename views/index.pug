@@ -3,7 +3,6 @@ extends layout
 block content
   div(class='container')
     div(class='spacer')
-    div(class='spacer')
 
     form(action='/eat' method='get' id='form')
       div(class='row')
@@ -29,15 +28,25 @@ block content
         )
 
       div(class='row')
-        label(for='save' id='save-label')
+        label(for='open-now')
+          input(
+            type='checkbox'
+            name='open'
+            id='open-now'
+            value='true'
+            checked=(savedParams && savedParams.open)
+          )
+          |  Open now
+
+        label(for='save')
           input(
             type='checkbox'
             name='save'
             id='save'
             value='true'
-            checked= savedParams ? true : false
+            checked=(savedParams ? true : false)
           )
-          |  Save parameters
+          |  Save parameters (uses cookies)
 
       div(class='row')
         input(class='primary' type='submit' value='Find a place to eat')

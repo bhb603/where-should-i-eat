@@ -6,6 +6,7 @@ window.addEventListener('load', function() {
       document.cookie = "wsie_params=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
       document.getElementById('location').value = null;
       document.getElementById('search').value = null;
+      document.getElementById('open-now').checked = false;
       document.getElementById('save').checked = false;
     }
   }

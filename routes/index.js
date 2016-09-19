@@ -26,7 +26,8 @@ router.get('/eat', function (req, res, next) {
        location: req.query.location,
        radius: req.query.radius,
        search: req.query.search,
-       price: req.query.price
+       price: req.query.price,
+       open: req.query.open
      }, {
        maxAge: COOKIE_AGE
      });
