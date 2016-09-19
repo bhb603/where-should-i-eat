@@ -11,13 +11,9 @@ A lightweight web app for the [10k Apart Contest](https://a-k-apart.com/).
 
 | Name                | Type      | Size (kB) | Notes
 |---------------------|-----------|----------:|------
-| /                   | document  | 1.4       |
+| /                   | html      | 1.4       |
 | style.min.css       | stylesheet| 2.9       |
-| /eat                | document  | 1.7       |
-| main.js             | script    | 0.74      | optional - site functions w/out js
+| /eat                | html      | 1.7       |
+| main.js             | script    | 0.75      | optional (site functions w/out js)
+|**TOTAL**            |           | **6.75**  |
 
-
-| Totals                 | Size (kB) |
-|------------------------|----------:|
-| Baseline (no JS)       | 5.9       |
-| Baseline + JS          | 6.6       |
