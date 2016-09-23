@@ -18,12 +18,12 @@ block content
           div(class='address')
             div= data.venue.location.address
             div= data.venue.location.city + ', ' + data.venue.location.state + ' ' + data.venue.location.postalCode
-            a(href=mapUrl target='_blank')  (map)
+            a(href=mapUrl target='_blank') [map]
           div(class='fsq-link')
-            a(href=fsqUrl target='_blank') View on Foursquare
+            a(href=fsqUrl target='_blank') Foursquare page
           if data.venue.url
             div
-              a(href=data.venue.url target='_blank') Visit Restaurant Website
+              a(href=data.venue.url target='_blank') Restaurant website
       div(class='powered-by-fsq')
         | Powered by <a href='http://foursquare.com' target='_blank'>Foursquare</a>
       a(class='button primary' href=requestUrl) Next Recommendation

@@ -144,6 +144,10 @@ input[type="submit"].primary:focus {
   border-color: #7b7;
 }
 
+label {
+  cursor: pointer;
+}
+
 .spacer {
   height: 60px;
 }

@@ -36,8 +36,9 @@ block content
             value='true'
             checked=(savedParams && savedParams.open)
           )
-          |  Open now
+          |  Only show results <b>open now</b>
 
+      div(class='row')
         label(for='save')
           input(
             type='checkbox'
@@ -46,7 +47,7 @@ block content
             value='true'
             checked=(savedParams ? true : false)
           )
-          |  Save parameters (uses cookies)
+          |  Save params (uses cookies)
 
       div(class='row')
         input(class='primary' type='submit' value='Find a place to eat')
